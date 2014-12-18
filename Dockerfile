@@ -2,7 +2,9 @@
 FROM debian:wheezy
 MAINTAINER Hel <herve.leclerc@alterway.fr>
 RUN apt-get -y update && \
-    apt-get install -y sudo python-yaml python-jinja2 python-httplib2 python-keyczar python-paramiko python-setuptools python-pkg-resources git python-pip
+    apt-get install -y sudo procps psmisc python-yaml python-jinja2 python-httplib2 && \
+    apt-get install -y python-keyczar python-paramiko python-setuptools python-pkg-resources && \
+    apt-get install -y git python-pip
 RUN mkdir /etc/ansible/
 RUN echo '[local]\nlocalhost\n' > /etc/ansible/hosts
 RUN mkdir /opt/ansible/
